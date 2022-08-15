@@ -1,0 +1,20 @@
+<div class='main' *ngIf='!isClose'>
+  <form class="pop-up" [formGroup]='form'>
+    <h3 class='title'>Edit Task</h3>
+    <div class="close" (click)='close()' title='close pop-up'>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <svg viewBox="0 0 36 36" class="circle">
+        <path stroke-dasharray="100, 100" d="M18 2.0845
+          a 15.9155 15.9155 0 0 1 0 31.831
+          a 15.9155 15.9155 0 0 1 0 -31.831" />
+      </svg>
+    </div>
+    <div class="body">
+      <textarea formControlName="task" placeholder="task..."></textarea>
+      <button type='submit' (click)='update()'>Ok</button>
+    </div>
+  </form>
+</div>

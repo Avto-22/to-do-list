@@ -1,0 +1,167 @@
+*{
+  padding:0%;
+}
+.main{
+    position:fixed;
+    top: 25vh;
+    width:100%;
+    height: 100vh;
+    z-index:10;
+    animation-name:pop-up;
+    animation-duration:.4s;
+    animation-iteration-count: 1;
+}
+
+@keyframes pop-up{
+    0%{
+        transform: scale(.1);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+.pop-up{
+    width:300px;
+    height:250px;
+    border-radius: 10px;
+    background-color: rgba(0,0,0);
+    display:flex;
+    flex-direction:column;
+    flex-wrap:no-wrap;
+    position: relative;
+    margin-left:auto;
+    margin-right:auto;
+    padding:0px 20px 100px 20px;
+}
+
+.pop-up .title{
+    text-align:center;
+    color: white;
+    font-family:cursive;
+    background-color:rgba(0,0,0);
+    margin-top:-35px;
+    padding:10px;
+    box-shadow: 1px 1px 30px 1px white;
+    border-radius: 10px;
+}
+
+.pop-up .body{
+    display:flex;
+    flex-direction:column;
+    flex-wrap:no-wrap;
+    justify-content:center;
+}
+
+.pop-up textarea{
+    width: 95%;
+    height:80px;
+    color:white;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    border:1px solid white;
+    background-color:black;
+    resize:none;
+}
+
+.pop-up input::placeholder{
+    color:rgba(255, 255, 255, 0.692);
+    font-size:18px;
+}
+
+.pop-up button{
+    all:unset;
+    text-align:center;
+    width: 100px;
+    height:auto;
+    padding:10px;
+    background-color: rgba(255, 255, 255,.9);
+    border-radius: 10px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:30px;
+    cursor:pointer;
+}
+
+.close {
+    width: 60px;
+    height: 60px;
+    position: relative;
+    background: #455A64;
+    border-radius: 50%;
+    box-shadow: 0 0 20px -5px rgba(255, 255, 255, 0.5);
+    transition: 0.25s ease-in-out;
+    cursor: pointer;
+    margin-left:auto;
+    margin-right: auto;
+    margin-top:10px;
+  }
+
+  .close .circle path {
+    stroke: white;
+    fill: none;
+    stroke-width: 1px;
+    stroke-linecap: round;
+    animation: progress 0.5s ease-out 0.25s both;
+  }
+  @keyframes progress {
+    from {
+      stroke-dasharray: 0 100;
+    }
+  }
+  .close span {
+    display: block;
+    width: 13px;
+    height: 2px;
+    background: white;
+    box-shadow: 0 0 20px -5px rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    position: absolute;
+    transition: 0.25s ease-in-out;
+    animation: slide-in 0.5s ease-in-out 0.25s both;
+  }
+  @keyframes slide-in {
+    from {
+      width: 0;
+    }
+  }
+  .close span:nth-child(1) {
+    top: 19px;
+    left: 20px;
+    transform: rotate(45deg);
+    transform-origin: top left;
+  }
+  .close span:nth-child(2) {
+    top: 19px;
+    right: 20px;
+    transform: rotate(-45deg);
+    transform-origin: top right;
+  }
+  .close span:nth-child(3) {
+    bottom: 19px;
+    left: 20px;
+    transform: rotate(-45deg);
+    transform-origin: bottom left;
+  }
+  .close span:nth-child(4) {
+    bottom: 19px;
+    right: 20px;
+    transform: rotate(45deg);
+    transform-origin: bottom right;
+  }
+  .close:hover {
+    background: #37474F;
+  }
+  .close:hover span {
+    width: 15px;
+  }
+
+  @media(max-width:448px){
+    .pop-up{
+        width:90vw;
+        margin-left:-7px;
+        margin-right:-7px;
+    }
+  }

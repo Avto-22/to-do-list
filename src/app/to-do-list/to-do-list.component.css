@@ -1,0 +1,176 @@
+*{
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.nav{
+    width: 100%;
+    display:flex;
+    justify-content: center;
+}
+
+.nav button{
+    margin-top: 10px;
+    color: black;
+    padding: .7em 1.5em;
+    font-size:18px;
+    border-radius: .5em;
+    background: #e8e8e8;
+    border: 1px solid #e8e8e8;
+    transition: all .6s;
+    box-shadow: 6px 6px 12px #c5c5c5,
+                -6px -6px 12px #fff;
+    cursor:pointer;
+}
+
+.nav button:hover{
+    box-shadow: -6px -6px 12px #c5c5c5,
+    6px 6px 12px #fff;
+}
+
+.main{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.main div{
+    width:calc(100vw/5);
+    border:2px solid black;
+    border-radius:10px;
+    margin:10px;
+    position:relative;
+    display:flex;
+    flex-direction: column;
+    padding:5px;
+}
+
+.tasks, .progress, .done{
+    height:calc(100vw/5);
+    min-width: 350px;
+    min-height:350px;
+    background-color:grey;
+}
+
+.tasks, .progress, .done, .header{
+    box-shadow:10px 20px 30px 10px black;
+    transition:.5s;
+}
+
+.tasks:hover, .progress:hover, .done:hover{
+    transform: scale(1.1);
+    cursor:pointer;
+    z-index:2;
+}
+
+.tasks:hover .header .title, .progress:hover .header .title, .done:hover .header .title{
+    color:black;
+}
+
+.tasks:hover .body li p, .progress:hover .body li p, .done:hover .body li p{
+    color:white;
+}
+
+.tasks:hover .body li, .progress:hover .body li, .done:hover .body li {
+    border:2px solid black;
+}
+
+.main .body li:hover{
+    border:2px solid white;
+}
+
+.main .header{
+    margin-left:auto;
+    margin-right: auto;
+    margin-top: 5px;
+    width:87%;
+    border:1px solid white;
+    height:30px;
+    display:flex;
+    justify-content: center;
+}
+
+.main .header .title{
+   text-align:center;
+    color:white;
+    font-weight:bolder;
+    font-family:cursive;
+    transition:.8s;
+}
+
+.main .body{
+   display:flex;
+   flex-direction:column;
+ 
+    margin-left:-10px;
+    overflow-y: auto;
+}
+
+.main .body li{
+    margin-left:-30px;
+    display:flex;
+    position:realitive;
+    justify-content:space-between;
+    border:2px solid white;
+    margin-bottom:5px;
+    padding:3px;
+    border-radius:10px;
+    transition:1s;
+}
+
+.main .body li p{
+    transition:.5s;
+    font-size:18px;
+    width:50%;
+    display:flex;
+    flex-wrap:wrap;
+    overflow-x: auto;
+}
+
+.main .body .buttons{
+    display:flex;
+    flex-direction:row;
+    width:auto;
+    border:none;
+}
+
+.main .body .buttons img{
+    width:30px;
+    height:30px;
+    cursor:pointer;
+    margin-left:10px;
+}
+
+.main .body .move{
+    border:1px solid red;
+    border-radius:10px;
+    margin-right:3px;
+}
+
+
+ .main .body::-webkit-scrollbar, .main .body li p::-webkit-scrollbar {
+     width: 12px;
+ }
+ 
+ .main .body::-webkit-scrollbar-track, .main .body li p::-webkit-scrollbar-track {
+     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+     border-radius: 10px;
+ }
+
+ .main .body::-webkit-scrollbar-thumb, .main .body li p::-webkit-scrollbar-thumb {
+     border-radius: 10px;
+     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+ }
+
+ @media(max-width:490px){
+    .tasks:hover, .progress:hover, .done:hover{
+        transform: scale(1);
+    }
+ }
+
+  
+ @media(max-width:350px){
+    .tasks, .progress, .done{
+       height:calc(100vw/5);
+       min-width:100%;
+    }
+ }

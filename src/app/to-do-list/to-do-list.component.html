@@ -1,0 +1,63 @@
+<app-loading *ngIf='loading$ | async'></app-loading>
+<div class='nav'>
+  <button (click)='signOut()'>Log Out</button>
+</div>
+<app-add-list-item></app-add-list-item>
+<div class='main'>
+  <div class='tasks' *ngIf="tasks$ | async as tasks">
+    <div class="header">
+      <p class="title">tasks</p>
+    </div>
+    <ul class='body'>
+      <li *ngFor="let item of tasks; let i=index">
+        <p>{{item.name}}</p>
+        <div class="buttons">
+          <img (click)="delete(item)" title='delete' src='../assets/images/delete.png'>
+          <img title='edit' (click)="edit(item.name, i , 'tasks')" src='../assets/images/edit.png'>
+          <img class='move' (click)="move(item,table.PROGRESS,i)" 
+            title="go to progress" src='../assets/images/next.png'>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class='progress' *ngIf="progressTable$ | async as progressTable">
+    <div class="header">
+      <p class="title">progress</p>
+    </div>
+    <ul class='body'>
+      <li *ngFor="let item of progressTable; let i=index">
+        <p>{{item.name}}</p>
+        <div class="buttons">
+          <img (click)="delete(item)" title="delete" src='../assets/images/delete.png'>
+          <img title="edit" (click)="edit(item.name, i, 'progress')" src='../assets/images/edit.png'>
+          <img class='move' (click)="move(item,table.TODO,i)" 
+            title="back to tasks" src='../assets/images/back.png'>
+          <img class='move' (click)="move(item,table.DONE,i)" style='margin-left:0px;'
+            title="go to done" src='../assets/images/next.png'>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="done" *ngIf="doneTable$ | async as doneTable">
+    <div class="header">
+      <p class="title">done</p>
+    </div>
+    <ul class='body'>
+      <li *ngFor="let item of doneTable; let i=index">
+        <p>{{item.name}}</p>
+        <div class="buttons">
+          <img (click)="delete(item)" title="delete" src='../assets/images/delete.png'>
+          <img title="edit" (click)="edit(item.name, i, 'done')" src='../assets/images/edit.png'>
+          <img class="move" (click)="move(item,table.PROGRESS,i)" 
+            title="back to progress" src='../assets/images/back.png'>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+<app-edit-list-item
+*ngIf='isOpenPopUp'
+(closeClick)="setOpenPopUp($event)"
+[taskFromPerent]="editTask"
+[taskIndexFromPerent]="editTaskIndex"
+[tasksTableFromPerent]="editTasksTable"></app-edit-list-item>

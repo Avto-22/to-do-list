@@ -1,0 +1,4 @@
+<form [formGroup]="form" class="form-wrapper">
+  <input formControlName="task" type="text" id="search" placeholder="Add to do..." required>
+  <input type="submit" value="add" id="submit" (click)="addTask()">
+</form>
